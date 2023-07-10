@@ -16,6 +16,7 @@
 		ECC9BED32A5C53C600C8BFB5 /* UpcomingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC9BED22A5C53C600C8BFB5 /* UpcomingVC.swift */; };
 		ECC9BED52A5C53D200C8BFB5 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC9BED42A5C53D200C8BFB5 /* SearchVC.swift */; };
 		ECC9BED72A5C53E600C8BFB5 /* DownloadsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC9BED62A5C53E600C8BFB5 /* DownloadsVC.swift */; };
+		ECC9BEDE2A5C758F00C8BFB5 /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC9BEDD2A5C758F00C8BFB5 /* CollectionViewTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		ECC9BED22A5C53C600C8BFB5 /* UpcomingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingVC.swift; sourceTree = "<group>"; };
 		ECC9BED42A5C53D200C8BFB5 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		ECC9BED62A5C53E600C8BFB5 /* DownloadsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsVC.swift; sourceTree = "<group>"; };
+		ECC9BEDD2A5C758F00C8BFB5 /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +66,6 @@
 			children = (
 				ECC9BECD2A5C531C00C8BFB5 /* Support */,
 				ECC9BECE2A5C533E00C8BFB5 /* Features */,
-				ECC9BEBD2A5C413B00C8BFB5 /* MainTabBarVC.swift */,
 			);
 			path = NetflixApp;
 			sourceTree = "<group>";
@@ -84,6 +85,10 @@
 		ECC9BECE2A5C533E00C8BFB5 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				ECC9BEDB2A5C742400C8BFB5 /* Manager */,
+				ECC9BEDA2A5C740400C8BFB5 /* Models */,
+				ECC9BED92A5C73FE00C8BFB5 /* Views */,
+				ECC9BED82A5C73F200C8BFB5 /* ViewModels */,
 				ECC9BECF2A5C536C00C8BFB5 /* Controllers */,
 			);
 			path = Features;
@@ -92,12 +97,50 @@
 		ECC9BECF2A5C536C00C8BFB5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				ECC9BEDC2A5C743500C8BFB5 /* TabBar */,
 				ECC9BED02A5C53B900C8BFB5 /* HomeVC.swift */,
 				ECC9BED22A5C53C600C8BFB5 /* UpcomingVC.swift */,
 				ECC9BED42A5C53D200C8BFB5 /* SearchVC.swift */,
 				ECC9BED62A5C53E600C8BFB5 /* DownloadsVC.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		ECC9BED82A5C73F200C8BFB5 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		ECC9BED92A5C73FE00C8BFB5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ECC9BEDD2A5C758F00C8BFB5 /* CollectionViewTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ECC9BEDA2A5C740400C8BFB5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		ECC9BEDB2A5C742400C8BFB5 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		ECC9BEDC2A5C743500C8BFB5 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				ECC9BEBD2A5C413B00C8BFB5 /* MainTabBarVC.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,6 +215,7 @@
 			files = (
 				ECC9BED52A5C53D200C8BFB5 /* SearchVC.swift in Sources */,
 				ECC9BEBE2A5C413B00C8BFB5 /* MainTabBarVC.swift in Sources */,
+				ECC9BEDE2A5C758F00C8BFB5 /* CollectionViewTableViewCell.swift in Sources */,
 				ECC9BED12A5C53B900C8BFB5 /* HomeVC.swift in Sources */,
 				ECC9BEBA2A5C413B00C8BFB5 /* AppDelegate.swift in Sources */,
 				ECC9BED72A5C53E600C8BFB5 /* DownloadsVC.swift in Sources */,
