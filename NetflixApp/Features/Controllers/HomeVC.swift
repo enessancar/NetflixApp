@@ -10,7 +10,7 @@ import UIKit
 final class HomeVC: UIViewController {
     
     let sectionTitles: [String] = [
-        "Trending Movies", "Popular", "Trending Tv", "Upcoming Movies", "Top rated"
+        "Trendıng Movıes", "Trendıng Tv", "Popular", "Upcomıng Movıes", "Top rated"
     ]
     
     //MARK: - Properties
@@ -26,7 +26,7 @@ final class HomeVC: UIViewController {
         super.viewDidLoad()
         configureView()
         configureNavBar()
-        getTrendingMovies()
+        fetchData()
     }
     
     override func viewDidLayoutSubviews() {
@@ -34,11 +34,11 @@ final class HomeVC: UIViewController {
         homeFeedTable.frame = view.bounds
     }
     
-    private func getTrendingMovies() {
-        APICaller.shared.getTrendingMovies { results in
+    private func fetchData() {
+        APICaller.shared.getUpcomingMovies { results in
             switch results {
-            case .success(let movies):
-                print(movies)
+            case .success(let tv):
+                print(tv)
             case .failure(let failure):
                 print(failure)
             }
@@ -94,7 +94,7 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
         
         return cell
     }
-   
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         200
     }
@@ -108,7 +108,8 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
         
         header.textLabel?.font = .systemFont(ofSize: 18, weight: .semibold)
         header.textLabel?.frame = .init(x: header.bounds.origin.x + 20, y: header.bounds.origin.y, width: 100, height: view.bounds.height)
-        header.textLabel?.textColor = .white
+        header.textLabel?.textColor = .label
+        header.textLabel?.text = header.textLabel?.text?.capitalized
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

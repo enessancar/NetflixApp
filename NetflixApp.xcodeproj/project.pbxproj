@@ -22,9 +22,10 @@
 		ECC9BEE92A5D552A00C8BFB5 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = ECC9BEE82A5D552A00C8BFB5 /* SnapKit */; };
 		ECC9BEEC2A5DEC4000C8BFB5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC9BEEB2A5DEC3F00C8BFB5 /* Constants.swift */; };
 		ECC9BEEE2A5E066900C8BFB5 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC9BEED2A5E066900C8BFB5 /* APICaller.swift */; };
-		ECC9BEF02A5E073F00C8BFB5 /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC9BEEF2A5E073F00C8BFB5 /* URLSession.swift */; };
 		ECC9BEF22A5E84CF00C8BFB5 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC9BEF12A5E84CF00C8BFB5 /* Movie.swift */; };
 		ECC9BEF42A5E90E600C8BFB5 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC9BEF32A5E90E600C8BFB5 /* CustomError.swift */; };
+		ECC9BEF62A5EF54000C8BFB5 /* Tv.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC9BEF52A5EF54000C8BFB5 /* Tv.swift */; };
+		ECC9BEFB2A5EF6A100C8BFB5 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC9BEFA2A5EF6A100C8BFB5 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,9 +45,10 @@
 		ECC9BEE52A5D50EE00C8BFB5 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		ECC9BEEB2A5DEC3F00C8BFB5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		ECC9BEED2A5E066900C8BFB5 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
-		ECC9BEEF2A5E073F00C8BFB5 /* URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSession.swift; sourceTree = "<group>"; };
 		ECC9BEF12A5E84CF00C8BFB5 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		ECC9BEF32A5E90E600C8BFB5 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
+		ECC9BEF52A5EF54000C8BFB5 /* Tv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tv.swift; sourceTree = "<group>"; };
+		ECC9BEFA2A5EF6A100C8BFB5 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 		ECC9BECE2A5C533E00C8BFB5 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				ECC9BEF72A5EF64C00C8BFB5 /* Service */,
 				ECC9BEDB2A5C742400C8BFB5 /* Manager */,
 				ECC9BEDA2A5C740400C8BFB5 /* Models */,
 				ECC9BED92A5C73FE00C8BFB5 /* Views */,
@@ -143,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				ECC9BEF12A5E84CF00C8BFB5 /* Movie.swift */,
+				ECC9BEF52A5EF54000C8BFB5 /* Tv.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -151,7 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				ECC9BEED2A5E066900C8BFB5 /* APICaller.swift */,
-				ECC9BEEF2A5E073F00C8BFB5 /* URLSession.swift */,
+				ECC9BEFA2A5EF6A100C8BFB5 /* NetworkManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -204,6 +208,13 @@
 				ECC9BEF32A5E90E600C8BFB5 /* CustomError.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		ECC9BEF72A5EF64C00C8BFB5 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,12 +297,13 @@
 				ECC9BED52A5C53D200C8BFB5 /* SearchVC.swift in Sources */,
 				ECC9BEBE2A5C413B00C8BFB5 /* MainTabBarVC.swift in Sources */,
 				ECC9BEE62A5D50EE00C8BFB5 /* UIView+Ext.swift in Sources */,
-				ECC9BEF02A5E073F00C8BFB5 /* URLSession.swift in Sources */,
 				ECC9BEF42A5E90E600C8BFB5 /* CustomError.swift in Sources */,
 				ECC9BEEC2A5DEC4000C8BFB5 /* Constants.swift in Sources */,
 				ECC9BEDE2A5C758F00C8BFB5 /* CollectionViewTableViewCell.swift in Sources */,
 				ECC9BED12A5C53B900C8BFB5 /* HomeVC.swift in Sources */,
+				ECC9BEF62A5EF54000C8BFB5 /* Tv.swift in Sources */,
 				ECC9BEE02A5C84C800C8BFB5 /* HeroHeaderView.swift in Sources */,
+				ECC9BEFB2A5EF6A100C8BFB5 /* NetworkManager.swift in Sources */,
 				ECC9BEEE2A5E066900C8BFB5 /* APICaller.swift in Sources */,
 				ECC9BEBA2A5C413B00C8BFB5 /* AppDelegate.swift in Sources */,
 				ECC9BED72A5C53E600C8BFB5 /* DownloadsVC.swift in Sources */,

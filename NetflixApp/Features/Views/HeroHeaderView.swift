@@ -79,7 +79,7 @@ extension HeroHeaderView {
         }
         
         downloadButton.snp.makeConstraints { make in
-            make.leading.equalTo(playButton.snp.trailing).offset(40)
+            make.trailing.equalToSuperview().offset(-60)
             make.bottom.equalToSuperview().offset(-50)
             make.width.equalTo(120)
         }

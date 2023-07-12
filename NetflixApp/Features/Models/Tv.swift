@@ -1,5 +1,5 @@
 //
-//  Movie.swift
+//  Tv.swift
 //  NetflixApp
 //
 //  Created by Enes Sancar on 12.07.2023.
@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct MovieResponse: Decodable {
-    let results: [Movie]
+struct TrendingTvResponse: Decodable {
+    let results: [TV]
 }
 
-struct Movie: Decodable {
+struct TV: Decodable {
     let id: Int
     let mediaType: String?
     let originalName: String?
