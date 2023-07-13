@@ -37,4 +37,8 @@ struct Movie: Decodable {
     var _posterPath: String {
         posterPath ?? "N/A"
     }
+    
+    var _originalTitle: String {
+        originalTitle ?? "N/A"
+    }
 }

@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-final class TitleCollectionViewCell: UICollectionViewCell {
+final class MovieCollectionViewCell: UICollectionViewCell {
     static let identifier = "TitleCollectionViewCell"
     
     //MARK: - Properties

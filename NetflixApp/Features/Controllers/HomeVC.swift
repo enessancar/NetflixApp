@@ -81,7 +81,7 @@ extension HomeVC {
             UIBarButtonItem(image: personImage , style: .done, target: self, action: nil),
             UIBarButtonItem(image: playImage , style: .done, target: self, action: nil)
         ]
-        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.tintColor = .label
     }
 }
 //MARK: - TableView DataSource
