@@ -14,7 +14,9 @@ final class MovieTableViewCell: UITableViewCell {
     //MARK: - Properties
     private let posterImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 8
         return imageView
     }()
     
@@ -46,9 +48,9 @@ final class MovieTableViewCell: UITableViewCell {
     
     private func configureConstraints() {
         posterImageView.snp.makeConstraints { make in
-            make.leading.equalToSuperview()
-            make.top.equalToSuperview().offset(15)
-            make.bottom.equalToSuperview().offset(-15)
+            make.leading.equalToSuperview().offset(8)
+            make.top.equalToSuperview().offset(10)
+            make.bottom.equalToSuperview().offset(-10)
             make.width.equalTo(100)
         }
         

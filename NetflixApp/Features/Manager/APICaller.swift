@@ -15,6 +15,7 @@ struct APIConstants {
     static let upcomingMovies = "\(baseURL)/3/movie/upcoming?api_key=\(apiKey)&language=en-US&page=1"
     static let popularMovies = "\(baseURL)/3/movie/upcoming?api_key=\(apiKey)&language=en-US&page=1"
     static let topRatedMovies = "\(baseURL)/3/movie/top_rated?api_key=\(apiKey)&language=en-US&page=1"
+    static let discoverMovies = "\(baseURL)/3/discover/movie?api_key=\(apiKey)&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate"
 }
 
 final class APICaller {
@@ -103,6 +104,26 @@ final class APICaller {
     
     func getTopRatedMovies(completion: @escaping(Result<[Movie], CustomError>) -> ()) {
         guard let url = URL(string: APIConstants.topRatedMovies) else {
+            completion(.failure(.invalidURL))
+            return
+        }
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
+            guard let data, error == nil else {
+                completion(.failure(.unableToParseFromJSON))
+                return
+            }
+            do {
+                let results = try JSONDecoder().decode(MovieResponse.self, from: data)
+                completion(.success(results.results))
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        task.resume()
+    }
+    
+    func getDiscoverMovies(completion: @escaping(Result<[Movie], CustomError>) -> ()) {
+        guard let url = URL(string: APIConstants.discoverMovies) else {
             completion(.failure(.invalidURL))
             return
         }
