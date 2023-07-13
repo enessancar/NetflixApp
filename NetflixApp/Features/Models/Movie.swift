@@ -33,4 +33,8 @@ struct Movie: Decodable {
         case releaseDate = "release_date"
         case voteAverage = "vote_average"
     }
+    
+    var _posterPath: String {
+        posterPath ?? "N/A"
+    }
 }

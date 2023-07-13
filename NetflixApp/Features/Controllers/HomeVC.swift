@@ -7,6 +7,14 @@
 
 import UIKit
 
+enum Sections: Int {
+    case trendingMovies = 0
+    case trendingTv = 1
+    case popular = 2
+    case upcoming = 3
+    case topRated = 4
+}
+
 final class HomeVC: UIViewController {
     
     let sectionTitles: [String] = [
@@ -92,6 +100,60 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
             fatalError()
         }
         
+        switch indexPath.section {
+            
+        case Sections.trendingMovies.rawValue:
+            APICaller.shared.getTrendingMovies { result in
+                switch result {
+                case .success(let movies):
+                    cell.configure(with: movies)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+            
+        case Sections.trendingTv.rawValue:
+            APICaller.shared.getTrendingTvs { result in
+                switch result {
+                case .success(let movies):
+                    cell.configure(with: movies)
+                case .failure(let failure):
+                    print(failure.localizedDescription)
+                }
+            }
+            
+        case Sections.popular.rawValue:
+            APICaller.shared.getPopularMovies { result in
+                switch result {
+                case .success(let movies):
+                    cell.configure(with: movies)
+                case .failure(let failure):
+                    print(failure.localizedDescription)
+                }
+            }
+            
+        case Sections.upcoming.rawValue:
+            APICaller.shared.getUpcomingMovies { result in
+                switch result {
+                case .success(let movies):
+                    cell.configure(with: movies)
+                case .failure(let failure):
+                    print(failure.localizedDescription)
+                }
+            }
+            
+        case Sections.topRated.rawValue:
+            APICaller.shared.getTopRatedMovies { result in
+                switch result {
+                case .success(let movies):
+                    cell.configure(with: movies)
+                case .failure(let failure):
+                    print(failure.localizedDescription)
+                }
+            }
+        default:
+            return UITableViewCell()
+        }
         return cell
     }
     

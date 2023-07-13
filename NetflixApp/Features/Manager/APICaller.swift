@@ -41,7 +41,7 @@ final class APICaller {
         task.resume()
     }
     
-    func getTrendingTvs(completion: @escaping(Result<[TV], CustomError>) -> ()) {
+    func getTrendingTvs(completion: @escaping(Result<[Movie], CustomError>) -> ()) {
         guard let url = URL(string: APIConstants.trendingTv) else {
             completion(.failure(.invalidURL))
             return
@@ -52,7 +52,7 @@ final class APICaller {
                 return
             }
             do {
-                let results = try JSONDecoder().decode(TrendingTvResponse.self, from: data)
+                let results = try JSONDecoder().decode(MovieResponse.self, from: data)
                 completion(.success(results.results))
             } catch {
                 print(error.localizedDescription)
