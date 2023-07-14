@@ -29,6 +29,8 @@
 		ECC9BF022A5F5D4300C8BFB5 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC9BF012A5F5D4300C8BFB5 /* String+Ext.swift */; };
 		ECC9BF042A5FFE0100C8BFB5 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC9BF032A5FFE0100C8BFB5 /* MovieTableViewCell.swift */; };
 		ECC9BF062A60134E00C8BFB5 /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC9BF052A60134E00C8BFB5 /* MovieViewModel.swift */; };
+		ECC9BF082A60749E00C8BFB5 /* SearchResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC9BF072A60749E00C8BFB5 /* SearchResultVC.swift */; };
+		ECC9BF0C2A60A5C700C8BFB5 /* CGFLoat+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC9BF0B2A60A5C700C8BFB5 /* CGFLoat+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		ECC9BF012A5F5D4300C8BFB5 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		ECC9BF032A5FFE0100C8BFB5 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		ECC9BF052A60134E00C8BFB5 /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
+		ECC9BF072A60749E00C8BFB5 /* SearchResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultVC.swift; sourceTree = "<group>"; };
+		ECC9BF0B2A60A5C700C8BFB5 /* CGFLoat+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFLoat+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,10 +127,8 @@
 			isa = PBXGroup;
 			children = (
 				ECC9BEDC2A5C743500C8BFB5 /* TabBar */,
-				ECC9BED02A5C53B900C8BFB5 /* HomeVC.swift */,
-				ECC9BED22A5C53C600C8BFB5 /* UpcomingVC.swift */,
-				ECC9BED42A5C53D200C8BFB5 /* SearchVC.swift */,
-				ECC9BED62A5C53E600C8BFB5 /* DownloadsVC.swift */,
+				ECC9BF0A2A60861300C8BFB5 /* General */,
+				ECC9BF092A6074C800C8BFB5 /* Core */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -204,6 +206,7 @@
 			children = (
 				ECC9BEE52A5D50EE00C8BFB5 /* UIView+Ext.swift */,
 				ECC9BF012A5F5D4300C8BFB5 /* String+Ext.swift */,
+				ECC9BF0B2A60A5C700C8BFB5 /* CGFLoat+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -215,6 +218,25 @@
 				ECC9BEF32A5E90E600C8BFB5 /* CustomError.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		ECC9BF092A6074C800C8BFB5 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				ECC9BED02A5C53B900C8BFB5 /* HomeVC.swift */,
+				ECC9BED22A5C53C600C8BFB5 /* UpcomingVC.swift */,
+				ECC9BED42A5C53D200C8BFB5 /* SearchVC.swift */,
+				ECC9BED62A5C53E600C8BFB5 /* DownloadsVC.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		ECC9BF0A2A60861300C8BFB5 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				ECC9BF072A60749E00C8BFB5 /* SearchResultVC.swift */,
+			);
+			path = General;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,6 +321,7 @@
 				ECC9BEF22A5E84CF00C8BFB5 /* Movie.swift in Sources */,
 				ECC9BED52A5C53D200C8BFB5 /* SearchVC.swift in Sources */,
 				ECC9BEBE2A5C413B00C8BFB5 /* MainTabBarVC.swift in Sources */,
+				ECC9BF0C2A60A5C700C8BFB5 /* CGFLoat+Ext.swift in Sources */,
 				ECC9BEE62A5D50EE00C8BFB5 /* UIView+Ext.swift in Sources */,
 				ECC9BEF42A5E90E600C8BFB5 /* CustomError.swift in Sources */,
 				ECC9BEEC2A5DEC4000C8BFB5 /* Constants.swift in Sources */,
@@ -310,6 +333,7 @@
 				ECC9BF062A60134E00C8BFB5 /* MovieViewModel.swift in Sources */,
 				ECC9BED72A5C53E600C8BFB5 /* DownloadsVC.swift in Sources */,
 				ECC9BEFD2A5F294800C8BFB5 /* MovieCollectionViewCell.swift in Sources */,
+				ECC9BF082A60749E00C8BFB5 /* SearchResultVC.swift in Sources */,
 				ECC9BED32A5C53C600C8BFB5 /* UpcomingVC.swift in Sources */,
 				ECC9BF022A5F5D4300C8BFB5 /* String+Ext.swift in Sources */,
 				ECC9BEBC2A5C413B00C8BFB5 /* SceneDelegate.swift in Sources */,
