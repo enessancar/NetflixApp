@@ -9,7 +9,9 @@ import Foundation
 
 struct APIConstants {
     static let apiKey = "e112ed72df8da5c3b38e4e6579896bc6"
+    static let youtubeApiKey = "AIzaSyDqX8axTGeNpXRiISTGL7Tya7fjKJDYi4g"
     static let baseURL = "https://api.themoviedb.org"
+    static let youtubeBaseURL = "https://youtube.googleapis.com/youtube/v3/search?"
     static let trendingMovies = "\(baseURL)/3/trending/movie/day?api_key=\(apiKey)"
     static let trendingTv = "\(baseURL)/3/trending/tv/day?api_key=\(apiKey)"
     static let upcomingMovies = "\(baseURL)/3/movie/upcoming?api_key=\(apiKey)&language=en-US&page=1"
@@ -161,5 +163,22 @@ final class APICaller {
                 print(error.localizedDescription)
             }
         }
+        task.resume()
+    }
+    
+    func getMovie(with query: String, completion: @escaping(Result<VideoElement, CustomError>) -> ()) {
+        guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
+        guard let url = URL(string: "\(APIConstants.youtubeBaseURL)q=\(query)&key=\(APIConstants.youtubeApiKey)") else { return }
+        
+        let task = URLSession.shared.dataTask(with: url) { data, _, error in
+            guard let data, error == nil else { return }
+            do {
+                let result = try JSONDecoder().decode(YoutubeSearchResponse.self, from: data)
+                completion(.success(result.items[0]))
+            }catch {
+                completion(.failure(.unableToParseFromJSON))
+            }
+        }
+        task.resume()
     }
 }

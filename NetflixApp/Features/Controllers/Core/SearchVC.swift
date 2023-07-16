@@ -100,8 +100,6 @@ extension SearchVC: UISearchResultsUpdating {
             return
         }
         
-        
-        
         APICaller.shared.search(with: query) { result in
             DispatchQueue.main.async {
                 switch result {

@@ -41,4 +41,8 @@ struct Movie: Decodable {
     var _originalTitle: String {
         originalTitle ?? "N/A"
     }
+    
+    var _overview: String {
+        overview ?? "N/A"
+    }
 }

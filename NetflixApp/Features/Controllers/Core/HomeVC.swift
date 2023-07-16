@@ -34,23 +34,11 @@ final class HomeVC: UIViewController {
         super.viewDidLoad()
         configureView()
         configureNavBar()
-        fetchData()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         homeFeedTable.frame = view.bounds
-    }
-    
-    private func fetchData() {
-        APICaller.shared.getUpcomingMovies { results in
-            switch results {
-            case .success(let tv):
-                print(tv)
-            case .failure(let failure):
-                print(failure)
-            }
-        }
     }
 }
 
@@ -66,6 +54,7 @@ extension HomeVC {
         
         let headerView = HeroHeaderView(frame: .init(x: 0, y: 0, width: view.bounds.width, height: 450))
         homeFeedTable.tableHeaderView = headerView
+        
     }
     
     private func configureNavBar() {
@@ -100,6 +89,7 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
             fatalError()
         }
         
+        cell.delegate = self
         switch indexPath.section {
             
         case Sections.trendingMovies.rawValue:
@@ -183,5 +173,18 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
         let offset = scrollView.contentOffset.y + defaultOffset
         
         navigationController?.navigationBar.transform = .init(translationX: 0, y: .minimum(0, -offset))
+    }
+}
+
+//MARK: - CollectionViewTableViewCellDelegate
+extension HomeVC: CollectionViewTableViewCellDelegate {
+    
+    func collectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, viewModel: MoviePreviewViewModel) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            let vc = MoviePreviewVC()
+            vc.configure(with: viewModel)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
