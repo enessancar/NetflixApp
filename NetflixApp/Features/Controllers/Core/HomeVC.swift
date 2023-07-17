@@ -17,6 +17,9 @@ enum Sections: Int {
 
 final class HomeVC: UIViewController {
     
+    private var randomTrendingMovie: Movie?
+    private var headerView: HeroHeaderView?
+    
     let sectionTitles: [String] = [
         "Trendıng Movıes", "Trendıng Tv", "Popular", "Upcomıng Movıes", "Top rated"
     ]
@@ -34,6 +37,7 @@ final class HomeVC: UIViewController {
         super.viewDidLoad()
         configureView()
         configureNavBar()
+        configureHeaderView()
     }
     
     override func viewDidLayoutSubviews() {
@@ -52,9 +56,22 @@ extension HomeVC {
         homeFeedTable.delegate = self
         homeFeedTable.dataSource = self
         
-        let headerView = HeroHeaderView(frame: .init(x: 0, y: 0, width: view.bounds.width, height: 450))
+        headerView = .init(frame: .init(x: 0, y: 0, width: .deviceWidth, height: 450))
         homeFeedTable.tableHeaderView = headerView
         
+    }
+    
+    private func configureHeaderView() {
+        APICaller.shared.getTrendingMovies { [weak self] result in
+            switch result {
+            case .success(let movies):
+                let selectedMovie = movies.randomElement()
+                self?.randomTrendingMovie = selectedMovie
+                self?.headerView?.configure(with: MovieViewModel(titleName: selectedMovie?._originalTitle ?? "", posterURL: selectedMovie?._posterPath ?? ""))
+            case .failure(let failure):
+                print(failure.localizedDescription)
+            }
+        }
     }
     
     private func configureNavBar() {
@@ -180,11 +197,11 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
 extension HomeVC: CollectionViewTableViewCellDelegate {
     
     func collectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, viewModel: MoviePreviewViewModel) {
+        
         DispatchQueue.main.async { [weak self] in
-            guard let self else { return }
             let vc = MoviePreviewVC()
             vc.configure(with: viewModel)
-            self.navigationController?.pushViewController(vc, animated: true)
+            self?.navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

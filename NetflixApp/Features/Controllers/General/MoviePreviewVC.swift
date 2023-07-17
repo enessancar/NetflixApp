@@ -75,7 +75,7 @@ final class MoviePreviewVC: UIViewController {
         }
     }
     
-    func configure(with model: MoviePreviewViewModel) {
+    public func configure(with model: MoviePreviewViewModel) {
         titleLabel.text = model.title
         overviewLabel.text = model.titleOverview
         

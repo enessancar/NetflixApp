@@ -56,7 +56,7 @@ final class CollectionViewTableViewCell: UITableViewCell {
 //MARK: - Configure
 extension CollectionViewTableViewCell {
     private func configureView() {
-        backgroundColor = .systemPink
+        backgroundColor = .systemBackground
         
         contentView.addSubview(collectionView)
         

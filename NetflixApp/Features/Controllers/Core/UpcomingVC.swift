@@ -53,7 +53,6 @@ final class UpcomingVC: UIViewController {
             }
         }
     }
-    
 }
 
 //MARK: - UITableView Delegate/DataSource
@@ -75,5 +74,25 @@ extension UpcomingVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         140
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let titleName = movies[indexPath.row]._originalTitle
+        let movies = movies[indexPath.row]
+        
+        APICaller.shared.getMovie(with: titleName + " trailer") { [weak self] result in
+            switch result {
+            case .success(let videoElement):
+                DispatchQueue.main.async {
+                    let vc = MoviePreviewVC()
+                    vc.configure(with: MoviePreviewViewModel(title: titleName, youtubeVideo: videoElement, titleOverview: movies._overview))
+                    self?.navigationController?.pushViewController(vc, animated: true)
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }

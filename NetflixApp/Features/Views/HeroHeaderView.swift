@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 final class HeroHeaderView: UIView {
     
@@ -15,7 +16,6 @@ final class HeroHeaderView: UIView {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.image = UIImage(named: "fb")
         return imageView
     }()
     
@@ -83,5 +83,12 @@ extension HeroHeaderView {
             make.bottom.equalToSuperview().offset(-50)
             make.width.equalTo(120)
         }
+    }
+    
+    public func configure(with model: MovieViewModel) {
+        guard let url = URL(string: "https://image.tmdb.org/t/p/w500/\(model.posterURL)") else {
+            return
+        }
+        heroImageView.kf.setImage(with: url)
     }
 }
