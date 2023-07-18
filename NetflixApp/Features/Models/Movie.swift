@@ -45,4 +45,12 @@ struct Movie: Decodable {
     var _overview: String {
         overview ?? "N/A"
     }
+    
+    var _voteCount: Int {
+        voteCount ?? Int.min
+    }
+    
+    var _voteAverage: Double {
+        voteAverage ?? 0.0
+    }
 }

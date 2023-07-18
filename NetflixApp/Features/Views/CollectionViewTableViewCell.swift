@@ -51,6 +51,17 @@ final class CollectionViewTableViewCell: UITableViewCell {
             self?.collectionView.reloadData()
         }
     }
+    
+    private func downloadMovie(indexPath: IndexPath) {
+        DataPersistenceManager.shared.downloadMovieWith(model: movies[indexPath.row]) { result in
+            switch result {
+            case .success():
+                NotificationCenter.default.post(name: NSNotification.Name("downloaded"), object: nil)
+            case .failure(let failure):
+                print(failure.localizedDescription)
+            }
+        }
+    }
 }
 
 //MARK: - Configure
@@ -103,5 +114,17 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
                 print(failure.localizedDescription)
             }
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPaths: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        let config = UIContextMenuConfiguration(
+            identifier: nil,
+            previewProvider: nil) { [weak self] _ in
+                let downloadAction = UIAction(title: "Download", state: .off) { _ in
+                    self?.downloadMovie(indexPath: indexPaths)
+                }
+                return UIMenu(title: "", image: nil, identifier: nil, options: .displayInline, children: [downloadAction])
+            }
+        return config
     }
 }

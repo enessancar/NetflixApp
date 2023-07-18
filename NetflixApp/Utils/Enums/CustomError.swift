@@ -15,4 +15,7 @@ enum CustomError: String, Error {
     case unableToParseFromJSON = "An error occurred while decoding from JSON to model."
     case title = "Error!"
     case noAvailableContent = "There is no available content!"
+    case failedToSaveData
+    case failedToFetchData
+    case failedToDeleteData
 }
